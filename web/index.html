@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Conversor de Unidades</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="title">
+          <h1>Conversor de Unidades</h1>
+          <p>Temperatura, Distância e Peso — com animações e API FastAPI</p>
+        </div>
+      </header>
+
+      <section class="card">
+        <form id="convertForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="category">Categoria</label>
+              <select id="category" name="category">
+                <option value="temperature">Temperatura (C/F/K)</option>
+                <option value="distance">Distância (m/km/mi)</option>
+                <option value="weight">Peso (kg/lb)</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="value">Valor</label>
+              <input id="value" name="value" type="text" placeholder="Ex: 25.5" inputmode="decimal" />
+            </div>
+
+            <div class="field">
+              <label for="fromUnit">De</label>
+              <select id="fromUnit" name="fromUnit"></select>
+            </div>
+
+            <div class="field">
+              <label for="toUnit">Para</label>
+              <select id="toUnit" name="toUnit"></select>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="submit">Converter</button>
+            <div class="result"><span id="resultText">—</span></div>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h3>Como funciona?</h3>
+        <p>
+          Este site chama uma API local feita em FastAPI, que reutiliza o mesmo módulo de conversão usado pela CLI.
+          Assim você aprende a separar lógica de apresentação e reaproveitar código.
+        </p>
+      </section>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
