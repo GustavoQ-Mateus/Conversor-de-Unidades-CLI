@@ -105,10 +105,17 @@ def convert_weight(value: float, from_unit: str, to_unit: str) -> float:
         raise ValueError("Peso não pode ser negativo.")
     if from_unit == to_unit:
         return float(value)
-    kg = float(value) / (KG_FACTORS[from_unit] if from_unit != "kg" else 1.0)
+    # Converte para kg primeiro
+    if from_unit == "kg":
+        kg = float(value)
+    else:  # from_unit == "lb"
+        kg = float(value) / KG_FACTORS["lb"]
+    
+    # Converte de kg para a unidade de destino
     if to_unit == "kg":
         return kg
-    return kg * KG_FACTORS[to_unit]
+    else:  # to_unit == "lb"
+        return kg * KG_FACTORS["lb"]
 
 def convert(category: str, from_unit: str, to_unit: str, value: float) -> Tuple[float, str, str]:
     """
