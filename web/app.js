@@ -1,4 +1,5 @@
-const apiBase = "http://127.0.0.1:8000";
+// Use the same origin as the page to avoid CORS/host mismatch (localhost vs 127.0.0.1)
+const apiBase = window.location.origin;
 
 const categoryEl = document.getElementById("category");
 const fromEl = document.getElementById("fromUnit");
@@ -82,8 +83,8 @@ formEl.addEventListener("submit", async (e) => {
       const txt = await res.text();
       throw new Error(txt || "Erro na requisição.");
     }
-    const data = await res.json();
-    resultEl.textContent = `${data.input_value} ${data.from_unit} = ${Number(data.result.toFixed(6))} ${data.to_unit}`;
+  const data = await res.json();
+  resultEl.textContent = `${value} ${fromUnit} = ${Number(data.result.toFixed(6))} ${toUnit}`;
     // animação
     resultEl.classList.remove("pop");
     // forçar reflow
