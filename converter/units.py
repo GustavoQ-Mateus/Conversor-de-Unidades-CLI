@@ -26,8 +26,8 @@ SYNONYMS: Dict[str, Dict[str, str]] = {
     },
 }
 
-def list_categories() -> Dict[str, list]:
-    return CATEGORIES.copy()
+def list_categories() -> list:
+    return list(CATEGORIES.keys())
 
 def list_units(category: str) -> list:
     category = category.lower()
