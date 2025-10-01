@@ -40,6 +40,11 @@ body {
   box-shadow: 0 10px 30px rgba(122, 162, 255, 0.25);
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  line-height: 1;
 }
 .logo::after {
   content: "";
@@ -163,4 +168,114 @@ button:active { transform: translateY(1px); }
 .toast.error {
   border-color: rgba(255, 107, 107, 0.5);
   box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+}
+
+/* Estilo específico para o select "De" (#fromUnit) */
+#fromUnit {
+  background-color: rgba(122, 162, 255, 0.12); /* tom do --accent */
+  color: #dfe7ff;
+  border-color: rgba(122, 162, 255, 0.45);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* Seta customizada com gradientes */
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%),
+    linear-gradient(to right, transparent, transparent);
+  background-position:
+    calc(100% - 18px) calc(50% - 4px),
+    calc(100% - 12px) calc(50% - 4px),
+    calc(100% - 32px) 50%;
+  background-size: 6px 6px, 6px 6px, 1px 60%;
+  background-repeat: no-repeat;
+  padding-right: 36px; /* espaço para a “seta” */
+}
+
+#fromUnit:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(122, 162, 255, 0.18);
+}
+
+/* Cores da lista de opções (varia por navegador/SO) */
+#fromUnit option {
+  background-color: #0e1528;
+  color: var(--text);
+}
+
+#fromUnit option:checked {
+  background-color: #203060;
+  color: #e8ecf1;
+}
+
+/* Estilo específico para o select "Para" (#toUnit) */
+#toUnit {
+  background-color: rgba(102, 224, 216, 0.12); /* tom do --accent-2 */
+  color: #dff9f7;
+  border-color: rgba(102, 224, 216, 0.45);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%),
+    linear-gradient(to right, transparent, transparent);
+  background-position:
+    calc(100% - 18px) calc(50% - 4px),
+    calc(100% - 12px) calc(50% - 4px),
+    calc(100% - 32px) 50%;
+  background-size: 6px 6px, 6px 6px, 1px 60%;
+  background-repeat: no-repeat;
+  padding-right: 36px;
+}
+
+#toUnit:focus {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 3px rgba(102, 224, 216, 0.18);
+}
+
+#toUnit option {
+  background-color: #0e1528;
+  color: var(--text);
+}
+
+#toUnit option:checked {
+  background-color: #1f3c3c;
+  color: #e8ecf1;
+}
+
+/* Estilo específico para o select de categoria (#category) */
+#category {
+  background-color: rgba(159, 179, 200, 0.12); /* tom do --muted */
+  color: var(--text);
+  border-color: rgba(159, 179, 200, 0.45);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%),
+    linear-gradient(to right, transparent, transparent);
+  background-position:
+    calc(100% - 18px) calc(50% - 4px),
+    calc(100% - 12px) calc(50% - 4px),
+    calc(100% - 32px) 50%;
+  background-size: 6px 6px, 6px 6px, 1px 60%;
+  background-repeat: no-repeat;
+  padding-right: 36px;
+}
+
+#category:focus {
+  border-color: var(--muted);
+  box-shadow: 0 0 0 3px rgba(159, 179, 200, 0.18);
+}
+
+#category option {
+  background-color: #0e1528;
+  color: var(--text);
+}
+
+#category option:checked {
+  background-color: #2a3340;
+  color: #e8ecf1;
 }
